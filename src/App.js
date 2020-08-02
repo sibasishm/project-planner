@@ -1,3 +1,14 @@
 import React from 'react';
 
-export const App = () => <main>Hello World</main>;
+import { Header } from './components/Header';
+import { Sidebar } from './components/SIdebar';
+
+export const App = () => {
+  return (
+    <>
+      <Header />
+      <Sidebar />
+      <main>Hello World</main>
+    </>
+  );
+};
