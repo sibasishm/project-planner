@@ -19,5 +19,8 @@ export const getDataFromSnapshot = snapshot => {
   };
 };
 
-export const getProjectsFromFireBase = observer =>
-  db.collection('tasks').onSnapshot(observer);
+export const getDataFromFirebase = (collectionName, observer, ...rest) =>
+  db
+    .collection(collectionName)
+    .where(...rest)
+    .onSnapshot(observer);

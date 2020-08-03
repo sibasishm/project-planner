@@ -1,26 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Header } from './components/Header';
 import { Sidebar } from './components/SIdebar';
-import {
-  getProjectsFromFireBase,
-  getDataFromSnapshot,
-} from './firestore/services';
+import { useTasks } from './hooks/useTasks';
 
 export const App = () => {
-  useEffect(() => {
-    const unsubscribe = getProjectsFromFireBase({
-      next: snapshot => console.log(snapshot.docs.map(getDataFromSnapshot)),
-      error: error => console.error(error),
-    });
-    return unsubscribe;
-  }, []);
+  const [tasks] = useTasks('v2KAkXXZbVOGCg8KeULY');
 
   return (
     <>
       <Header />
       <Sidebar />
-      <main>Hello World</main>
+      <main>
+        <p>Here are the tasks: </p>
+        <ul>
+          {tasks.map(task => (
+            <li key={task.id}>{task.title}</li>
+          ))}
+        </ul>
+      </main>
     </>
   );
 };
