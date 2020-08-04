@@ -20,7 +20,9 @@ export const getDataFromSnapshot = snapshot => {
 };
 
 export const getDataFromFirebase = (collectionName, observer, ...rest) =>
-  db
-    .collection(collectionName)
-    .where(...rest)
-    .onSnapshot(observer);
+  rest.length > 0
+    ? db
+        .collection(collectionName)
+        .where(...rest)
+        .onSnapshot(observer)
+    : db.collection(collectionName);

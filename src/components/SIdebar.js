@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiInbox, FiCalendar, FiWatch, FiChevronRight } from 'react-icons/fi';
+import { Projects } from './Projects';
 
 export const Sidebar = () => {
   return (
@@ -24,26 +25,11 @@ export const Sidebar = () => {
           <span>Upcoming</span>
         </li>
       </ul>
-      <ul>
-        <li>
-          <span>
-            <FiChevronRight />
-          </span>
-          <span>Projects</span>
-        </li>
-        <li>
-          <span>
-            <FiChevronRight />
-          </span>
-          <span>Labels</span>
-        </li>
-        <li>
-          <span>
-            <FiChevronRight />
-          </span>
-          <span>Filters</span>
-        </li>
-      </ul>
+      <div>
+        <FiChevronRight />
+        Projects
+        <Projects />
+      </div>
     </aside>
   );
 };

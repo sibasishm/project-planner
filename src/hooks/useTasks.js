@@ -27,7 +27,9 @@ export const useTasks = selectedProject => {
       ...filters
     );
 
-    return unsubscribe;
+    return () => {
+      unsubscribe();
+    };
   }, [filters]);
 
   return [tasks, setTasks];
