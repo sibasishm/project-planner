@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 import { StyledSpan, StyledLabel } from './styled/Checkbox';
 
-export const Checkbox = ({ label }) => {
-  const [checked, setChecked] = useState(false);
+export const Checkbox = ({ label, isChecked }) => {
+  const [checked, setChecked] = useState(isChecked || false);
   return (
     <>
       <StyledSpan
@@ -11,7 +11,8 @@ export const Checkbox = ({ label }) => {
         aria-checked={checked}
         aria-labelledby={label}
         tabIndex="0"
-        onClick={() => setChecked(!checked)}
+        checked={checked}
+        onChange={() => setChecked(!checked)}
       ></StyledSpan>
       <StyledLabel htmlFor={label}>{label}</StyledLabel>
     </>

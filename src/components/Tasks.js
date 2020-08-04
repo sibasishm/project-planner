@@ -9,8 +9,7 @@ export const Tasks = () => {
     <ul>
       {tasks.map(task => (
         <li key={task.id}>
-          <Checkbox />
-          <span>{task.title}</span>
+          <Checkbox label={task.title} isChecked={task.archived} />
         </li>
       ))}
     </ul>
